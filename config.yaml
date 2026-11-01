@@ -1,0 +1,39 @@
+# Central configuration. Change the study area / years here - no code changes needed.
+project: "Remote Sensing, GIS, AI and Digital Twins for Urban Planning"
+
+aoi:
+  name: "Noida - Greater Noida (Uttar Pradesh, India)"   # PENDING TEAM APPROVAL - see README
+  bbox: [77.30, 28.40, 77.55, 28.65]   # lon_min, lat_min, lon_max, lat_max (WGS84)
+  crs: "EPSG:32643"                    # UTM zone 43N; change if you move the AOI
+
+resolution_m: 20          # common analysis grid. 10 is possible but needs more RAM/time.
+years: [2019, 2021, 2025] # first and last year are used for change detection
+train_year: 2021          # year of the composite used for training (matches ESA WorldCover 2021)
+
+season:                   # same season every year -> avoids seasonal "false change"
+  start_month: 2
+  end_month: 3
+
+sentinel2:
+  max_cloud_cover: 30     # % scene-level cloud filter
+  max_scenes: 16          # most-clear scenes used per composite
+
+lst:                      # land surface temperature (Landsat 8/9, optional)
+  year: 2025
+  start_month: 4
+  end_month: 5
+  max_cloud_cover: 20
+
+model:
+  n_per_class: 6000       # max training samples per class
+  test_fraction: 0.3      # share of spatial blocks held out for testing
+  block_size_px: 50       # spatial block = 50 px (1 km at 20 m) -> prevents neighbour leakage
+  seed: 42
+  rf:
+    n_estimators: 150
+    max_depth: 20
+    min_samples_leaf: 3
+
+growth:
+  n_samples: 20000
+  cell_m: 1000            # grid cell size for choropleth / planning statistics

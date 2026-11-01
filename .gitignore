@@ -1,0 +1,27 @@
+# Environments / caches
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+.streamlit/secrets.toml
+node_modules/
+
+# Large or regenerable data (re-create with scripts/run_pipeline.py)
+data/real/
+models/real/
+outputs/real/
+*.zip
+
+# Synthetic test data is regenerable too
+data/synthetic/
+models/synthetic/
+outputs/synthetic/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

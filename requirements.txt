@@ -1,0 +1,29 @@
+# Python 3.10 - 3.13. Install:  pip install -r requirements.txt
+# Versions below are the minimums; the project was developed and tested with the newest releases.
+numpy>=1.26
+pandas>=2.1
+scipy>=1.11
+scikit-learn>=1.4
+joblib>=1.3
+pyyaml>=6.0
+matplotlib>=3.8
+
+# Remote sensing / GIS (all ship pre-built wheels on Windows, macOS and Linux - no separate GDAL install)
+rasterio>=1.3.9
+geopandas>=1.0
+pyogrio>=0.7
+shapely>=2.0
+pyproj>=3.6
+
+# Satellite data access (free, no account/API key needed for Planetary Computer public data)
+pystac-client>=0.7
+planetary-computer>=1.0
+
+# Dashboard
+streamlit>=1.50
+streamlit-folium>=0.20
+folium>=0.15
+plotly>=5.18
+
+# Tests
+pytest>=8.0
